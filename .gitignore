@@ -1,0 +1,25 @@
+# Dependencias
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Producción
+build/
+dist/
+
+# Entornos locales
+.env
+.env.*
+!.env.example
+
+# Cachés y registros
+*.log
+*.tsbuildinfo
+.turbo/
+
+# Sistema y editores
+.DS_Store
+.vscode/
+.idea/
