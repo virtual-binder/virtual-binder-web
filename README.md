@@ -21,6 +21,19 @@ npm run lint
 npm run build
 ```
 
-## Despliegue
+## Despliegue en Netlify
 
-El destino es Netlify. Conecta este repositorio y configura `NEXT_PUBLIC_API_URL` con la URL HTTPS de Cloud Run. La API debe incluir el dominio de Netlify en `CORS_ORIGINS`.
+`netlify.toml` define el build de Next.js y una versión LTS de Node.js. Netlify detecta Next.js mediante su adaptador OpenNext.
+
+```bash
+netlify login
+netlify init
+```
+
+Después de desplegar la API, configura la variable pública de producción:
+
+```bash
+netlify env:set NEXT_PUBLIC_API_URL https://URL-DE-CLOUD-RUN --context production
+```
+
+La API debe incluir el dominio de Netlify en `CORS_ORIGINS`. No uses la URL local de desarrollo para producción.
