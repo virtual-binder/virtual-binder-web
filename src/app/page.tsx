@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { ApiStatus } from "@/components/api-status";
 
 export default function Home() {
@@ -19,6 +21,12 @@ export default function Home() {
               Estamos construyendo una nueva forma de administrar cartas
               coleccionables y descubrir su valor de mercado.
             </p>
+            <Link
+              href="/erwin"
+              className="w-fit rounded-xl bg-[#ffcb05] px-5 py-3 text-sm font-bold text-[#10213d] transition hover:bg-yellow-300"
+            >
+              Ver colección de ejemplo
+            </Link>
           </div>
 
           <div className="rounded-3xl border border-slate-700 bg-[#111d31] p-6 shadow-2xl">
