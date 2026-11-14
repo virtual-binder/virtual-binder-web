@@ -18,7 +18,7 @@ Para levantar simultáneamente API, PostgreSQL, web y Expo, usa `make dev` desde
 
 `/[username]` muestra la colección pública de un usuario; la ruta de demostración es `/erwin`. Incluye tres niveles de zoom, precios en CLP definidos por el vendedor, contacto individual y selección de lotes.
 
-Los datos demostrativos están en `src/lib/collection.ts`. Cuando la API disponga de perfiles e inventario, esa capa debe reemplazarse por la consulta correspondiente. El formulario actual abre el cliente de correo mediante `mailto:`; no envía mensajes por la plataforma ni procesa pagos.
+`src/lib/collection.ts` consulta Supabase mediante PostgREST con las variables públicas `NEXT_PUBLIC_SUPABASE_URL` y `NEXT_PUBLIC_SUPABASE_ANON_KEY`. La lectura anónima está limitada por RLS a perfiles y cartas disponibles; la edición requiere que el usuario autenticado sea el dueño. El formulario abre el cliente de correo mediante `mailto:`; no envía mensajes por la plataforma ni procesa pagos.
 
 ## Comprobaciones
 
@@ -36,10 +36,6 @@ netlify login
 netlify init
 ```
 
-Después de desplegar la API, configura la variable pública de producción:
+`netlify.toml` contiene las URLs públicas y la clave anónima de Supabase para producción. La clave anónima puede exponerse porque RLS limita sus permisos; nunca agregues una clave `service_role`.
 
-```bash
-netlify env:set NEXT_PUBLIC_API_URL https://URL-DE-CLOUD-RUN --context production
-```
-
-La API debe incluir el dominio de Netlify en `CORS_ORIGINS`. No uses la URL local de desarrollo para producción.
+La API debe incluir el dominio de Netlify en `CORS_ORIGINS`. No uses URLs locales para producción.

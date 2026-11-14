@@ -8,3 +8,5 @@
 
 [context.production.environment]
   NEXT_PUBLIC_API_URL = "https://dxgsbipadmaipyzfv7enjusqhi0tgulu.lambda-url.us-east-2.on.aws"
+  NEXT_PUBLIC_SUPABASE_URL = "https://mnkidazimzyfgciqetsy.supabase.co"
+  NEXT_PUBLIC_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ua2lkYXppbXp5ZmdjaXFldHN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ2NzgwNDIsImV4cCI6MjExMDI1NDA0Mn0.wiGbDXp2kPvCCBfb_wJ9zUDgMc56FzCuadhgK1bC6fU"

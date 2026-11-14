@@ -75,6 +75,12 @@ export function CollectionShowcase({ profile }: { profile: PublicProfile }) {
         </div>
       </div>
 
+      {profile.cards.length === 0 ? (
+        <div className="rounded-3xl border border-dashed border-slate-700 p-10 text-center text-slate-400">
+          Este usuario todavía no tiene cartas disponibles.
+        </div>
+      ) : null}
+
       <div className={`grid ${gridClasses[zoom]}`}>
         {profile.cards.map((card) => {
           const selected = selectedIds.has(card.id);

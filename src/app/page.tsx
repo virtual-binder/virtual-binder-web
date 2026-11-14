@@ -30,12 +30,11 @@ export default function Home() {
           </div>
 
           <div className="rounded-3xl border border-slate-700 bg-[#111d31] p-6 shadow-2xl">
-            <p className="mb-5 text-sm font-semibold text-slate-300">Entorno local</p>
+            <p className="mb-5 text-sm font-semibold text-slate-300">Estado del servicio</p>
             <ApiStatus />
             <div className="mt-5 space-y-3 text-sm text-slate-400">
-              <p>Web: localhost:3000</p>
-              <p>API: localhost:8000</p>
-              <p>PostgreSQL: localhost:5432</p>
+              <p>Escáner conectado a la API de producción</p>
+              <p>Catálogo público respaldado por Supabase</p>
             </div>
           </div>
         </section>

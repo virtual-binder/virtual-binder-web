@@ -5,17 +5,15 @@ import { notFound } from "next/navigation";
 import { CollectionShowcase } from "@/components/collection-showcase";
 import { getPublicProfile } from "@/lib/collection";
 
+export const instant = false;
+
 type PageProps = {
   params: Promise<{ username: string }>;
 };
 
-export function generateStaticParams() {
-  return [{ username: "erwin" }];
-}
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { username } = await params;
-  const profile = getPublicProfile(username);
+  const profile = await getPublicProfile(username);
 
   if (!profile) {
     return { title: "Colección no encontrada · Virtual Binder" };
@@ -29,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function PublicCollectionPage({ params }: PageProps) {
   const { username } = await params;
-  const profile = getPublicProfile(username);
+  const profile = await getPublicProfile(username);
 
   if (!profile) {
     notFound();
@@ -75,8 +73,8 @@ export default async function PublicCollectionPage({ params }: PageProps) {
         <CollectionShowcase profile={profile} />
 
         <footer className="mt-14 border-t border-slate-800 pt-6 text-xs leading-5 text-slate-500">
-          Vista demostrativa. El contacto abre tu aplicación de correo; Virtual Binder
-          no procesa pagos ni confirma la disponibilidad de las cartas.
+          El contacto abre tu aplicación de correo; Virtual Binder no procesa pagos
+          ni confirma la disponibilidad de las cartas.
         </footer>
       </div>
     </main>
